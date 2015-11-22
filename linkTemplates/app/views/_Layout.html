@@ -1,20 +1,26 @@
 <!doctype html>
 <html>
 <head>
-	<title>Glide Blog - <sitemesh:write property='title'/></title>
+	<title>Link Templates <sitemesh:write property='title'/></title>
 	<meta name="powered-by" content="glide">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
 	<sitemesh:write property='head'/>
 </head>
 <body>
+	<!--//TODO: agregar inline -->
 	<header>
 		<div class="container">
 			<h1> Plantillas Link</h1>
 		</div>
 	</header>
 	<hr/>
-	<sitemesh:write property='body'/>
 	<form method="post" action="/login">
 		<button type="submit">Log in with google</button>
 	</form>
+
+	<sitemesh:write property='body'/>
 </body>
 </html>
