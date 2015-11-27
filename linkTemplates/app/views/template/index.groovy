@@ -23,7 +23,9 @@ html.html {
                 def templates = Template.findAll({sort desc by creationDate}).each { template ->
                     div("class": "row") {
                         h3 "Title: " + template.name
+                        h4 "ID: " + template.id 
                         h4 "Description: " + template.description
+                        a(href:"/templates/${template.id}", class: "glyphicon glyphicon-eye-open")
                     }
                 }
 
