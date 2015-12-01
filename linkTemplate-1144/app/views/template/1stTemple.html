@@ -1,0 +1,46 @@
+<div style="width: 900px; color: #444444; font-family: Arial; font-size: 0;">
+	
+	<!--IMG HEADER-->
+	<div style="width: 100%; margin-bottom:5%;">
+
+			<img src="${article_ecommerce.clientEcommerce.img_header}" style="margin: 0; width:100%;"> 
+	</div>
+
+	<!--IMG ARTICULO -->
+	<div style="width: 100%;">
+		<img src="${picture_url}" style="margin: 30px auto 20px auto; max-width: 918px; height: auto;">
+	</div>
+
+	<!--IMG TITULO CARACTERISTICAS -->
+	<div style="width: 100%; ">
+		<img src="${article_ecommerce.clientEcommerce.img_title}" style="margin: 0; width: 100%;">
+	</div>
+
+	<!-- TITULO ARTICULO -->
+	<div style="width: 100%;">
+		<div style="margin-left: 20%;margin-right: 20%;width: 60%;background: -webkit-linear-gradient(#B5B5B9, #636161, #B5B5B9);">
+			<p style = "color:black; width: 100%;font-size: 30px;font-weight: bold;text-align: center;padding-top: 5%;padding-bottom: 5%;margin: 0;">
+			${article_ecommerce.title}
+			</p>
+		</div>
+	</div>
+
+	<!-- DESCRIPCION ARTICULO -->
+	<div style="width: 100%; height:auto;">
+		<g:each var="item" in="${description}">
+			<p style = "color:black; font-size: 25px;">
+			${item}
+			</p>
+		</g:each>
+	</div>
+
+	<!-- IMG GENERAL -->
+	<div style="width: 100%;">
+		<img src="${article_ecommerce.clientEcommerce.img_general_condition}" style="margin: 0;">
+	</div>
+
+	<!-- IMG FOOTER -->
+	<!--<div style="width: 100%;">
+		<img src="http://www.divino.com.uy/ml/img/ml_footer.png" style="margin: 0;" data-src-original="http://www.divino.com.uy/ml/img/ml_footer.png" class="src-lazy-load">
+	</div>-->
+</div>
