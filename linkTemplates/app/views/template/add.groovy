@@ -6,7 +6,9 @@ new Template(
 	 creationDate : new Date(),
 	 lastModifiedDate : new Date(),
 	 description : params.description,
+	 html: params.html,
 	 user: users.currentUser
 	).save()
+
 
 redirect "/templates"

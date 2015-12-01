@@ -13,9 +13,7 @@ class Template {
 	Date lastModifiedDate
 	String description
 	String urlPreview
-	Component header
-	Component footer
-	ArrayList<Component> sections
+	String html
 	User user
 
 }

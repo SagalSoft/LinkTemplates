@@ -18,6 +18,9 @@ html.html{
                     div {
                         textarea(type: "text", rows: 4, name: "description", value: "", placeholder:"Description", class:"form-control")
                     }
+                    div{
+                        textarea(type:"text", rows: 10, name:"html", value:"", placeholder:"html", class:"form-control")
+                    }
                     div {
                         button(type: "submit", class: "glyphicon glyphicon-plus")
                     }

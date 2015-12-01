@@ -5,9 +5,6 @@ import java.utils.*
 
 def templateId = params.id as long
 def template = Template.get(templateId)
-// def templateWhere = Template.findAll({where id == templateId})
-// def templateGet = Template.get(params.id as long)
-// template = template.value
 
 html.html{
     head {
@@ -23,8 +20,8 @@ html.html{
             }
             div("class":"row"){
                 p { mkp.yield template.description }
-                if(template.urlPreview){
-                img(src: template.urlPreview)
+                if(template.html){
+                    mkp.yieldUnescaped template.html
                 }else{
                     p "No hay preview"
                 }
