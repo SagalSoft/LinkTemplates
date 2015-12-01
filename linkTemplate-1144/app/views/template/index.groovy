@@ -63,7 +63,7 @@ html.html
                 }
             }
 
-            a(href:"/templates/addtemplate", class: "glyphicon glyphicon-plus")
+            a(href:"/templates/add", class: "glyphicon glyphicon-plus")
         } 
     }
 }
