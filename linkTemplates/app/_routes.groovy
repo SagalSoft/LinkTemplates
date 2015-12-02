@@ -1,7 +1,0 @@
-get "/", forward: "/views/index.groovy"
-post "/login", forward: "/views/user/create.groovy"
-get "/templates", forward: "/views/template/index.groovy"
-post "/templates/add", forward: "/views/template/add.groovy"
-get "/templates/addtemplate", forward: "/views/template/addTemplate.groovy"
-get "/templates/@id", forward: "/views/template/viewTemplate.groovy?id=@id"
-delete "/templates/@id", forward: "/views/template/deleteTemplate.groovy?id=@id"
