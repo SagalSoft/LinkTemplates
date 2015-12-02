@@ -8,10 +8,6 @@ def template = Template.get(templateId)
 
 html.html
 {
-    head 
-    {
-        title "Add template"
-    }
 
     body()
     {
@@ -24,25 +20,32 @@ html.html
                     mkp.yield template.name
                 }
             }
-            div("class":"row")
+            div(class:"row", style: "min-height: 80px !important")
             {
-                p 
+                p() 
                 {
-                   mkp.yield template.description 
+                    mkp.yield template.description 
                 }
-                if(template.html)
+                div(class: "panel panel-default") 
                 {
-                    mkp.yieldUnescaped template.html
+                    div(class:"panel-heading", style:"height: 45px !important")
+                    {
+                        a(href:"/templates/edit/${template.id}", style:"float:right", class:"material-icons") { mkp.yield "edit" }
+                        a(href:"/templates", class: "material-icons", style:"float:left") { mkp.yield "keyboard_backspace"}  
+                    }
+                    div(class:"panel-body", style:"padding:10px; width:100%"){
+                        if(template.html)
+                        {
+
+                            mkp.yieldUnescaped template.html
+
+                        }
+                        else
+                        {
+                            p "Your template doesn't have anything to show"
+                        }
+                    }
                 }
-                else
-                {
-                    p "No hay preview"
-                }
-            }
-            div(class:"row")
-            {
-                a(href:"/templates", class: "glyphicon glyphicon-arrow-left")
-                a(href:"/templates/edit/${template.id}", class: "glyphicon glyphicon-edit")
             }
         }
     }
