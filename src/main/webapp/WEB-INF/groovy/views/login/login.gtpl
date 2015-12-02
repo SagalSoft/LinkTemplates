@@ -16,7 +16,6 @@
       def requestURI = "/login"
       if (user != null) {
         // pageContext.setAttribute("user", user);
-        out.print(user.toString());
         url = userService.createLogoutURL requestUri
         logged=true;
       }
@@ -26,13 +25,24 @@
         url = userService.createLoginURL requestUri
       }
       %>
-    <%
-      if(logged){
-        %>
-      <label>User: <%=user.toString() %></label>
-    <%
-      }
-    %>
-    <a href="<%=url %>">Sign <% if(logged){out.print("Out");}else{out.print("In");} %></a>
+      <div class="jumbotron">
+  <h1>Welcome to LinkTemplates</h1>
+
+  <p>We are commited to making your life easier, creating templates for your e commerce publications.</p>
+
+  <p>
+<% if(user == null){ %>
+  <a href="<%=url %>" class="btn btn-raised btn-inverse btn-lg">Log in with Google</a></p>
+<%
+}
+else
+{
+  %>
+  <a href="/templates" class="btn btn-raised btn-inverse btn-lg">Go see your templates!</a></p>
+  <%
+}
+%>
+</div>
+   
   </body>
 </html>

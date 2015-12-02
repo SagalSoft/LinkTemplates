@@ -26,19 +26,51 @@ html.html {
   }
   body(){
     header{
-      div (class:"navbar navbar-default")
+      div (class:"navbar navbar-inverse")
       {
         div (class:"container-fluid")
         {
           div (class:"navbar-header")
           {
-            h1 "Plantillas Link"
+            //h1 "Link Templates"
+
+            UserService userService = UserServiceFactory.getUserService()
+            User user = userService.getCurrentUser()
+
+            ul(class:"nav navbar-nav")
+            {
+              li(){
+                a(href:"/", class:"active")
+                {
+                  mkp.yield "Link Templates"
+                }
+              }
+              if(user)
+              {
+                li()
+                {
+                  //
+                  a(href:"/templates") 
+                  {
+                    mkp.yield "Templates"
+                  }
+                }
+
+                li()
+                {
+                  def url = userService.createLogoutURL "/"
+                  //
+                  a(href:url) 
+                  {
+                    mkp.yield "Log out"
+                  }
+                }
+              }
+            }
           }
         }
       }
     }
-    // hr 
-
     mkp.yieldUnescaped "<sitemesh:write property='body'/>"
   }
 }

@@ -11,10 +11,6 @@ User currentUser = userService.getCurrentUser();
 
 html.html 
 {
-    head 
-    {
-        title "My templates"
-    }
 
     body() 
     {
@@ -32,47 +28,55 @@ html.html
 
         div("class": "container") 
         {
-            div("class": "row") 
-            {
+            h2 "Your templates"
+            def templates = Template.findAll({ sort desc by creationDate })
+             // Closure query = { it.user == currentUser }
 
-                h1("class": "span12 page-header")
+             templates = templates.findAll { it.user == currentUser }
+
+             templates.each 
+             {
+                template ->
+                div(class: "panel panel-default") 
                 {
-                    mkp.yield "My Templates"
-                } 
 
-                def templates = Template.findAll({ select all from templates sort desc by creationDate }).each 
-                { template ->
-                    //d
-                    if(template.user == currentUser)
+                    a(href:"/templates/view/${template.id}", class:"btn btn-default btn-lg btn-block")
                     {
-                        div("class": "row") 
+                        div(class:"panel-heading", style:"float:left")
                         {
-                            h3 "Title: " + template.name
-                            h4 "ID: " + template.id 
-                            h4 "Description: " + template.description
-                            a(href:"/templates/view/${template.id}", class: "glyphicon glyphicon-eye-open")
-                            span(class: "glyphicon glyphicon-minus", id: "delete-template-${template.id}")        
-                            script()
-                            {
-                                mkp.yieldUnescaped "document.getElementById('delete-template-${template.id}').addEventListener('click', function(){ DeleteTemplateXHR(${template.id}) });"                        
-                            }
+                            b() { mkp.yield template.name }
+                        }
+                    }
+                    div(class:"panel-body")
+                    {
+                            p(style: "float:left") {mkp.yield template.description}
+                    }
+                    div(class:"panel-footer", style:"height:45px !important")
+                    {
+                        a(href:"/templates/edit/${template.id}", style:"float:right", class:"material-icons") { mkp.yield "edit"
+                            // i(class:"material-icons") {mkp.yield "more_edit" }
+                        }
+                        a(class: "material-icons", style:"float:left", id: "delete-template-${template.id}") { mkp.yield "delete"}        
+                        script()
+                        {
+                            mkp.yieldUnescaped "document.getElementById('delete-template-${template.id}').addEventListener('click', function(){ DeleteTemplateXHR(${template.id}) });"                        
                         }
                     }
                 }
+            }
 
-                if(Template.count() == 0)
+            if(templates.size() == 0)
+            {
+                div("class": "row")
                 {
-
-                    div("class": "row")
-                    {
-                        h2 "No hay templates"
-                    }
+                    h2 "No hay templates"
                 }
+            }
 
-                a(href:"/templates/add", class: "btn btn-primary btn-fab"){
-                    i (class:"material-icons") { mkp.yield "add" }
-                }
-            } 
+            a(href:"/templates/add", class: "btn btn-danger btn-fab", style:"bottom:20; right:20; position:absolute;")
+            {
+                i (class:"material-icons") { mkp.yield "add" }
+            }
         }
     }
 }
