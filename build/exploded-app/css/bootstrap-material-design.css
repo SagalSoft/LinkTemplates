@@ -75,11 +75,11 @@ h5,
 h6 {
   font-weight: 400;
 }
-a,
+/*a,
 a:hover,
 a:focus {
   color: #009688;
-}
+}*/
 a .material-icons,
 a:hover .material-icons,
 a:focus .material-icons {
