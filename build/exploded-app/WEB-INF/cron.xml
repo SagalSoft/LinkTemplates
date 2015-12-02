@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cronentries>
+  <cron>
+    <url>/sendmail</url>
+    <description>Mail out a weekly report</description>
+    <schedule>every day 22:00</schedule>
+     <timezone>America/Montevideo</timezone>
+  </cron>
+</cronentries>
